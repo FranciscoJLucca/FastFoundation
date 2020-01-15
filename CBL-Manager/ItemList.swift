@@ -41,7 +41,6 @@ struct ItemList: View {
                             .frame(height:30)
                             .padding(Edge.Set.trailing, 10)
                     }
-                    
                     Spacer()
                 }
                 Spacer()
