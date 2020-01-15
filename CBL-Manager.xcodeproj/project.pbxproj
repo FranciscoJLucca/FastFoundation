@@ -20,6 +20,8 @@
 		1B66B2F423CF72F1001334F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B66B2F223CF72F1001334F7 /* LaunchScreen.storyboard */; };
 		1B66B30623CF7366001334F7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B66B30523CF7366001334F7 /* Constants.swift */; };
 		1BEE381623CF90240048CD2B /* FindNewProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE381523CF90240048CD2B /* FindNewProject.swift */; };
+		86B495E023CFAB4A007CBDB8 /* DetailedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B495DF23CFAB4A007CBDB8 /* DetailedProject.swift */; };
+		86B495E223CFAB56007CBDB8 /* ProjectStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B495E123CFAB56007CBDB8 /* ProjectStep.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		1B66B2F523CF72F1001334F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B66B30523CF7366001334F7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1BEE381523CF90240048CD2B /* FindNewProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindNewProject.swift; sourceTree = "<group>"; };
+		86B495DF23CFAB4A007CBDB8 /* DetailedProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedProject.swift; sourceTree = "<group>"; };
+		86B495E123CFAB56007CBDB8 /* ProjectStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStep.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,10 +77,12 @@
 				1B3A6E8223CF9377004C49F4 /* ItemList.swift */,
 				1B3A6E8323CF9377004C49F4 /* MyAccountView.swift */,
 				1B3A6E8023CF9376004C49F4 /* ProjectList.swift */,
+				86B495E123CFAB56007CBDB8 /* ProjectStep.swift */,
 				1B3A6E8123CF9376004C49F4 /* SearchBarComponent.swift */,
 				1BEE381523CF90240048CD2B /* FindNewProject.swift */,
 				1B3A6E8823CF9785004C49F4 /* NoProjectsView.swift */,
 				1B66B2E723CF72F0001334F7 /* AppDelegate.swift */,
+				86B495DF23CFAB4A007CBDB8 /* DetailedProject.swift */,
 				1B66B2EB23CF72F0001334F7 /* ContentView.swift */,
 				1B66B30523CF7366001334F7 /* Constants.swift */,
 				1B66B2E923CF72F0001334F7 /* SceneDelegate.swift */,
@@ -176,7 +182,9 @@
 				1B3A6E8623CF9377004C49F4 /* ItemList.swift in Sources */,
 				1B66B2EC23CF72F0001334F7 /* ContentView.swift in Sources */,
 				1B66B30623CF7366001334F7 /* Constants.swift in Sources */,
+				86B495E023CFAB4A007CBDB8 /* DetailedProject.swift in Sources */,
 				1B3A6E8423CF9377004C49F4 /* ProjectList.swift in Sources */,
+				86B495E223CFAB56007CBDB8 /* ProjectStep.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

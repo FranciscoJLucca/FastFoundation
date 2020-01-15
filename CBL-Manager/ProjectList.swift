@@ -29,7 +29,7 @@ struct ProjectList: View {
             }
             .navigationBarTitle("My Projects", displayMode: .inline)
             .background(NavigationConfigurator { nc in
-                nc.navigationBar.barTintColor = .init(red: 38/255, green: 133/255, blue: 151/255, alpha: 1.0)
+                nc.navigationBar.barTintColor = Constants.mainColor.uiColor()
                 nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
             })
                 .padding(20)

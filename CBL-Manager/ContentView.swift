@@ -11,9 +11,8 @@ import SwiftUI
 struct ContentView: View {
     
     init() {
-        UITabBar.appearance().barTintColor = UIColor (red: 38/255, green: 133/255, blue: 151/255, alpha: 1)
-        
-        UITabBar.appearance().unselectedItemTintColor = UIColor.white
+        UITabBar.appearance().barTintColor = Constants.mainColor.uiColor()
+        UITabBar.appearance().unselectedItemTintColor = UIColor.init(white: 1, alpha: 0.5)
 
     }
 
@@ -34,10 +33,9 @@ struct ContentView: View {
             MyAccountView()
                 .tabItem {
                     Image(systemName: "person")
-                        .foregroundColor(.white)
                     Text("Profile")
             }
         }
-        .accentColor(.black)
+        .accentColor(.white)
     }
 }
