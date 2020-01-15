@@ -9,13 +9,35 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, World!")
-    }
-}
+    
+    init() {
+        UITabBar.appearance().barTintColor = UIColor (red: 38/255, green: 133/255, blue: 151/255, alpha: 1)
+        
+        UITabBar.appearance().unselectedItemTintColor = UIColor.white
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    }
+
+    var body: some View {
+        TabView {
+            FindProjectView()
+                .tabItem {
+                    Image(systemName: "text.justify")
+                    Text("New Project")
+            }
+            
+            ProjectList()
+                .tabItem {
+                    Image(systemName: "folder")
+                    Text("My Projects")
+            }
+            
+            MyAccountView()
+                .tabItem {
+                    Image(systemName: "person")
+                        .foregroundColor(.white)
+                    Text("Profile")
+            }
+        }
+        .accentColor(.black)
     }
 }
