@@ -12,38 +12,20 @@ import Foundation
 import SwiftUI
 
 
-struct Project: Identifiable {
-    
-    var id: UUID = UUID()
-    var name: String
-    var description: String
-    var members: String
-    var icon: String
-    var admin: Bool
-    
-}
-
 struct ProjectList: View {
-    @State var projects: [Project] = [
-//        Project(name: "Dig This!", description: "Digging puzzle? Dig This!", members:"dig", icon:"doc.richtext", admin: true),
-//        Project(name: "Dig This!", description: "Digging puzzle? Dig This!", members:"dig", icon:"doc.richtext", admin: false),
-//        Project(name: "Dig This!", description: "Digging puzzle? Dig This!", members:"dig", icon:"doc.richtext", admin: false),
-//        Project(name: "Dig This!", description: "Digging puzzle? Dig This!", members:"dig", icon:"doc.richtext", admin: false),
-//        Project(name: "Dig This!", description: "Digging puzzle? Dig This!", members:"dig", icon:"doc.richtext", admin: true),
-        
-    ]
-    
+
     
     var body: some View {
         NavigationView {
-            if (projects.count == 0) {
+            if (Constants.projects.count == 0) {
                 NoProjectsView()
             } else {
-            ScrollView () {
-                ForEach (projects) { i in
-                    ItemList(name: i.name, description: i.description, members: i.members, icon: i.icon, admin:i.admin)
-                    Divider()
-                }
+            ScrollView {
+                ForEach (Constants.projects) { i in
+                    NavigationLink(destination: DetailedProject(proj:i)) {
+                            ItemList(name: i.name, description: i.description, members: i.members, icon: i.icon, admin:i.admin)
+                        }
+                    }
             }
             .navigationBarTitle("My Projects", displayMode: .inline)
             .background(NavigationConfigurator { nc in
