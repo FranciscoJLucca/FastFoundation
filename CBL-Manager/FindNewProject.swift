@@ -71,7 +71,7 @@ struct FindProjectView: View {
                     Spacer()
                         .frame(height: 10)
                     
-                    Button(action: {}) {
+                    NavigationLink(destination: NewProjectView()) {
                         Text("Create New Project")
                             .foregroundColor(.white)
                     }

@@ -25,8 +25,9 @@ struct NavigationConfigurator: UIViewControllerRepresentable {
 
 struct MyAccountView: View {
     
+    @State var changeAvatar = false
+    
     //color of the app
-    var appColor = Color(red: 38/255, green: 133/255, blue: 151/255)
     
     var body: some View {
         NavigationView{
@@ -39,23 +40,29 @@ struct MyAccountView: View {
                         nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
                     })
                     .navigationBarItems(trailing:
-                        EditButton.init().foregroundColor(.white)
+                        EditButton()
                 )
                 
                 //avatar icon
                 Image(systemName: "person.circle")
                     .resizable()
                     .frame(width: 115, height: 115, alignment: .center)
-                    .foregroundColor(appColor)
+                    .foregroundColor(Constants.mainColor)
                 
                 //avatar text
-                Text("Change Avatar")
+                //Button(action: {
+                //    self.changeAvatar.toggle()
+                //}) {
+                    Text("Change Avatar")
                     .bold()
                     .font(.system(size: 13))
                     .frame(width: 107, height: 26, alignment: .center)
                     .foregroundColor(.white)
-                    .background(appColor)
+                    .background(Constants.mainColor)
                     .cornerRadius(9)
+                //}.sheet(isPresented: $changeAvatar){
+                //    ChangeAvatarView(information: "flemis")
+                //}
                 
                 
                 Spacer().frame(height: 5)
@@ -66,7 +73,7 @@ struct MyAccountView: View {
                     HStack {
                         Text("Name: ")
                             .bold()
-                            .foregroundColor(appColor)
+                            .foregroundColor(Constants.mainColor)
                             .frame(width: 100, height: 30, alignment: .leading)
                         
                         Text("Marina De Pazzi")
@@ -79,7 +86,7 @@ struct MyAccountView: View {
                     HStack{
                         Text("E-mail: ")
                             .bold()
-                            .foregroundColor(appColor)
+                            .foregroundColor(Constants.mainColor)
                             .frame(width: 100, height: 30, alignment: .leading)
                         
                         
@@ -93,7 +100,7 @@ struct MyAccountView: View {
                     HStack{
                         Text("User Name: ")
                             .bold()
-                            .foregroundColor(appColor)
+                            .foregroundColor(Constants.mainColor)
                             .frame(width: 100, height: 30, alignment: .leading)
                         
                         Text("MarinaDePazzi")
@@ -105,7 +112,7 @@ struct MyAccountView: View {
                     HStack{
                         Text("Password: ")
                             .bold()
-                            .foregroundColor(appColor)
+                            .foregroundColor(Constants.mainColor)
                             .frame(width: 100, height: 30, alignment: .leading)
                         
                         
@@ -122,6 +129,7 @@ struct MyAccountView: View {
                 Text("Sign Out").foregroundColor(.red).underline()
                 
             }.padding(20)
+            
         }
     }
 }
