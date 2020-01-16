@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SearchBarComponent: View {
     
-    @State var searchText = ""
+    @Binding var searchText: String
     
     var body: some View {
         TextField("Search for members, projecrs or labels", text: $searchText)

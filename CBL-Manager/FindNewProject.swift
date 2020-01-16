@@ -8,9 +8,24 @@
 
 import SwiftUI
 
-
-
 struct FindProjectView: View {
+    
+    @State var seachText: String = ""
+    
+    @Binding var listOfProjects: [Project]
+    
+    
+    private var filteredProjects: [Project] {
+        
+        if self.seachText.isEmpty {
+            return listOfProjects
+        } else {
+            return listOfProjects.filter {
+                $0.name.contains(self.seachText.lowercased()) ||
+                    $0.members.contains(self.seachText.lowercased())
+            }
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -27,8 +42,7 @@ struct FindProjectView: View {
                         nc.navigationBar.barTintColor = .init(red: 38/255, green: 133/255, blue: 151/255, alpha: 1.0)
                         nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
                     })
-                .edgesIgnoringSafeArea(.top)
-
+                
                 
                 Text("Find an Existing Project")
                     .bold()
@@ -47,7 +61,18 @@ struct FindProjectView: View {
                 Spacer()
                     .frame(height: 5)
                 
-                SearchBarComponent()
+                VStack {
+                    SearchBarComponent(searchText: $seachText)
+                    if self.seachText != "" {
+                        List {
+                           ForEach(filteredProjects) { project in
+                            NavigationLink(destination: DetailedProject(proj: project)) {
+                                Text(project.name)
+                            }
+                            }
+                        }
+                    }
+                }
                 
                 Spacer()
                     .frame(height: 50)
@@ -57,26 +82,27 @@ struct FindProjectView: View {
                         .resizable()
                         .frame(width: 45, height: 45, alignment: .center)
                         .foregroundColor(Constants.mainColor)
-                    
+
                     Text("Start From Scratch")
                         .bold()
                         .frame(width: nil, height: nil, alignment: .center)
                         .font(.system(size: 25))
                         .foregroundColor(Constants.mainColor)
-                    
+
                     Text("Create a new projects as an administrator and add members to start creating CBL enviroments")
                         .multilineTextAlignment(.center)
                         .foregroundColor(.gray)
                         .font(.system(size: 12))
                         .frame(width: nil, height: nil, alignment: .center)
-                    
+
                     Spacer()
                         .frame(height: 10)
-                    
-                    Button(action: {}) {
+
+                    Button(action: {
+                    }) {
                         NavigationLink(destination: MyAccountView()) {
                             Text("Create New Project")
-                            .foregroundColor(.white)
+                                .foregroundColor(.white)
                         }
                     }
                     .padding(.init(top: 7, leading: 25, bottom: 7, trailing: 25))
