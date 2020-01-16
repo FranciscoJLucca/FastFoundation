@@ -25,8 +25,11 @@ struct NavigationConfigurator: UIViewControllerRepresentable {
 
 struct MyAccountView: View {
     
-    //color of the app
-    var appColor = Color(red: 38/255, green: 133/255, blue: 151/255)
+    @State private var editAccount = false
+    @State private var isShowingActionSheet = false
+    
+    @State var isShown: Bool = false
+    @State var image: Image? = nil
     
     var body: some View {
         NavigationView{
@@ -44,11 +47,19 @@ struct MyAccountView: View {
                     
                 Spacer()
                     .frame(height: 5)
+                
                 //avatar icon
-                Image(systemName: "person.circle")
-                    .resizable()
-                    .frame(width: 115, height: 115, alignment: .center)
-                    .foregroundColor(appColor)
+                if image == nil {
+                    Image(systemName: "person.circle")
+                        .resizable()
+                        .frame(width: 115, height: 115, alignment: .center)
+                        .foregroundColor(Constants.mainColor)
+                } else {
+                    self.image!
+                        .resizable()
+                        .frame(width: 115, height: 115, alignment: .center)
+                        .cornerRadius(20)
+                }
                 
                 //avatar text
                 Text("Change Avatar")
@@ -56,8 +67,25 @@ struct MyAccountView: View {
                     .font(.system(size: 13))
                     .frame(width: 107, height: 26, alignment: .center)
                     .foregroundColor(.white)
-                    .background(appColor)
+                    .background(Constants.mainColor)
                     .cornerRadius(9)
+                    .onTapGesture {
+                        self.isShowingActionSheet.toggle()
+                }
+                .actionSheet(isPresented: $isShowingActionSheet) {
+                    ActionSheet(title: Text("Change Avatar"), message: Text("Choose location"), buttons: [.default(Text("Photos"), action: { self.isShown.toggle() }), .cancel()])
+                }
+                .sheet(isPresented: $isShown) {
+                    ImagePicker(isShown: self.$isShown, image: self.$image)
+                }
+                
+//                .actionSheet(isPresented: $editAvatar {
+//                    ActionSheet(title: Text("Change Avatar"), message: Text("Flemis"), buttons: [
+//                        .default(Text("Photos")) {system},
+//                            .default(Text("Browse other apps")) {},
+//                        .cancel()
+//                    ])
+//                })
                 
                 
                 Spacer().frame(height: 5)
@@ -68,7 +96,7 @@ struct MyAccountView: View {
                     HStack {
                         Text("Name: ")
                             .bold()
-                            .foregroundColor(appColor)
+                            .foregroundColor(Constants.mainColor)
                             .frame(width: 100, height: 30, alignment: .leading)
                         
                         Text("Marina De Pazzi")
@@ -81,7 +109,7 @@ struct MyAccountView: View {
                     HStack{
                         Text("E-mail: ")
                             .bold()
-                            .foregroundColor(appColor)
+                            .foregroundColor(Constants.mainColor)
                             .frame(width: 100, height: 30, alignment: .leading)
                         
                         
@@ -95,7 +123,7 @@ struct MyAccountView: View {
                     HStack{
                         Text("User Name: ")
                             .bold()
-                            .foregroundColor(appColor)
+                            .foregroundColor(Constants.mainColor)
                             .frame(width: 100, height: 30, alignment: .leading)
                         
                         Text("MarinaDePazzi")
@@ -107,7 +135,7 @@ struct MyAccountView: View {
                     HStack{
                         Text("Password: ")
                             .bold()
-                            .foregroundColor(appColor)
+                            .foregroundColor(Constants.mainColor)
                             .frame(width: 100, height: 30, alignment: .leading)
                         
                         

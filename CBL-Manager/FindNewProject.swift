@@ -27,8 +27,8 @@ struct FindProjectView: View {
                         nc.navigationBar.barTintColor = .init(red: 38/255, green: 133/255, blue: 151/255, alpha: 1.0)
                         nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
                     })
-                .edgesIgnoringSafeArea(.top)
-
+                    .edgesIgnoringSafeArea(.top)
+                
                 
                 Text("Find an Existing Project")
                     .bold()
@@ -73,12 +73,11 @@ struct FindProjectView: View {
                     Spacer()
                         .frame(height: 10)
                     
-                    Button(action: {}) {
-                        NavigationLink(destination: MyAccountView()) {
-                            Text("Create New Project")
+                    NavigationLink(destination: NewProjectView()) {
+                        Text("Create New Project")
                             .foregroundColor(.white)
-                        }
                     }
+                        
                     .padding(.init(top: 7, leading: 25, bottom: 7, trailing: 25))
                     .background(Constants.mainColor)
                     .cornerRadius(5)
