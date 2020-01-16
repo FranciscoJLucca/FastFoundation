@@ -13,28 +13,31 @@ struct ContentView: View {
     init() {
         UITabBar.appearance().barTintColor = Constants.mainColor.uiColor()
         UITabBar.appearance().unselectedItemTintColor = UIColor.init(white: 1, alpha: 0.5)
-
+        
     }
-
+    
     var body: some View {
         TabView {
-            FindProjectView()
+            FindProjectView(listOfProjects: Constants.$projects)
                 .tabItem {
                     Image(systemName: "text.justify")
+                        .font(.system(size: 23))
                     Text("New Project")
-            }
+            }.tag(1)
             
             ProjectList()
                 .tabItem {
                     Image(systemName: "folder")
+                        .font(.system(size: 23))
                     Text("My Projects")
-            }
+            }.tag(2)
             
             MyAccountView()
                 .tabItem {
                     Image(systemName: "person")
+                        .font(.system(size: 23))
                     Text("Profile")
-            }
+            }.tag(3)
         }
         .accentColor(.white)
     }
