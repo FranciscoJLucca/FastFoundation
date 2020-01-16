@@ -47,7 +47,7 @@ struct FindProjectView: View {
                 Spacer()
                     .frame(height: 5)
                 
-                SearchBarComponent()
+                SearchBarComponent(text:"Search for members, projecrs or labels")
                 
                 Spacer()
                     .frame(height: 50)

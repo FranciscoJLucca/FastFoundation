@@ -11,9 +11,9 @@ import SwiftUI
 struct SearchBarComponent: View {
     
     @State var searchText = ""
-    
+    var text:String
     var body: some View {
-        TextField("Search for members, projecrs or labels", text: $searchText)
+        TextField(text, text: $searchText)
         .textFieldStyle(RoundedBorderTextFieldStyle())
             .frame(width: 350, height: 20, alignment: .center)
             .padding(20)
