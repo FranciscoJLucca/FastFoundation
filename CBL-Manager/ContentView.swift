@@ -20,7 +20,7 @@ struct ContentView: View {
         TabView {
             FindProjectView(listOfProjects: Constants.$projects)
                 .tabItem {
-                    Image(systemName: "text.justify")
+                    Image(systemName: "pencil.and.outline")
                         .font(.system(size: 23))
                     Text("New Project")
             }.tag(1)

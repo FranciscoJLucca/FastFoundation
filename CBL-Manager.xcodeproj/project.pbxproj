@@ -20,6 +20,7 @@
 		1B66B2F423CF72F1001334F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B66B2F223CF72F1001334F7 /* LaunchScreen.storyboard */; };
 		1B66B30623CF7366001334F7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B66B30523CF7366001334F7 /* Constants.swift */; };
 		1BEE381623CF90240048CD2B /* FindNewProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEE381523CF90240048CD2B /* FindNewProject.swift */; };
+		865D5EED23D221CE00D06040 /* NewProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865D5EEC23D221CE00D06040 /* NewProjectView.swift */; };
 		86B495E023CFAB4A007CBDB8 /* DetailedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B495DF23CFAB4A007CBDB8 /* DetailedProject.swift */; };
 		86B495E223CFAB56007CBDB8 /* ProjectStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B495E123CFAB56007CBDB8 /* ProjectStep.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		1B66B2F523CF72F1001334F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B66B30523CF7366001334F7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1BEE381523CF90240048CD2B /* FindNewProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindNewProject.swift; sourceTree = "<group>"; };
+		865D5EEC23D221CE00D06040 /* NewProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProjectView.swift; sourceTree = "<group>"; };
 		86B495DF23CFAB4A007CBDB8 /* DetailedProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedProject.swift; sourceTree = "<group>"; };
 		86B495E123CFAB56007CBDB8 /* ProjectStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectStep.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +85,7 @@
 				1B3A6E8823CF9785004C49F4 /* NoProjectsView.swift */,
 				1B66B2E723CF72F0001334F7 /* AppDelegate.swift */,
 				86B495DF23CFAB4A007CBDB8 /* DetailedProject.swift */,
+				865D5EEC23D221CE00D06040 /* NewProjectView.swift */,
 				1B66B2EB23CF72F0001334F7 /* ContentView.swift */,
 				1B66B30523CF7366001334F7 /* Constants.swift */,
 				1B66B2E923CF72F0001334F7 /* SceneDelegate.swift */,
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B66B2E823CF72F0001334F7 /* AppDelegate.swift in Sources */,
+				865D5EED23D221CE00D06040 /* NewProjectView.swift in Sources */,
 				1BEE381623CF90240048CD2B /* FindNewProject.swift in Sources */,
 				1B3A6E8523CF9377004C49F4 /* SearchBarComponent.swift in Sources */,
 				1B66B2EA23CF72F0001334F7 /* SceneDelegate.swift in Sources */,

@@ -60,7 +60,7 @@ struct FindProjectView: View {
                 
                 VStack {
                     Button(action:{}) {
-                        NavigationLink(destination: MyAccountView()) {
+                        NavigationLink(destination: NewProjectView()) {
                             Text("Create New Project")
                                 .foregroundColor(.white)
                                 .padding(.init(top: 10, leading: 30, bottom: 10, trailing: 30))
