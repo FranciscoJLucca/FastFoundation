@@ -1,11 +1,3 @@
-//
-//  MyAccountView.swift
-//  CBL-Manager
-//
-//  Created by Marina De Pazzi on 14/01/20.
-//  Copyright © 2020 Francisco/Joao/Marina/Victor. All rights reserved.
-//
-
 import SwiftUI
 
 //for navigation bar color change
@@ -25,7 +17,16 @@ struct NavigationConfigurator: UIViewControllerRepresentable {
 
 struct MyAccountView: View {
     
+<<<<<<< HEAD
+    @State private var editAccount = false
+    @State private var isShowingActionSheet = false
+    
+    @State var isShown: Bool = false
+    @State var image: Image? = nil
+    
+=======
     @State var editEnable = false
+>>>>>>> master
     var body: some View {
         NavigationView{
             VStack (spacing: 10){
@@ -33,11 +34,26 @@ struct MyAccountView: View {
                     
                 Spacer()
                     .frame(height: 5)
+                
                 //avatar icon
+<<<<<<< HEAD
+                if image == nil {
+                    Image(systemName: "person.circle")
+                        .resizable()
+                        .frame(width: 115, height: 115, alignment: .center)
+                        .foregroundColor(Constants.mainColor)
+                } else {
+                    self.image!
+                        .resizable()
+                        .frame(width: 115, height: 115, alignment: .center)
+                        .cornerRadius(20)
+                }
+=======
                 Image(systemName: "person.circle")
                     .resizable()
                     .frame(width: 115, height: 115, alignment: .center)
                     .foregroundColor(Constants.mainColor)
+>>>>>>> master
                 
                 //avatar text
                 Text("Change Avatar")
@@ -47,6 +63,23 @@ struct MyAccountView: View {
                     .foregroundColor(.white)
                     .background(Constants.mainColor)
                     .cornerRadius(9)
+                    .onTapGesture {
+                        self.isShowingActionSheet.toggle()
+                }
+                .actionSheet(isPresented: $isShowingActionSheet) {
+                    ActionSheet(title: Text("Change Avatar"), message: Text("Choose location"), buttons: [.default(Text("Photos"), action: { self.isShown.toggle() }), .cancel()])
+                }
+                .sheet(isPresented: $isShown) {
+                    ImagePicker(isShown: self.$isShown, image: self.$image)
+                }
+                
+//                .actionSheet(isPresented: $editAvatar {
+//                    ActionSheet(title: Text("Change Avatar"), message: Text("Flemis"), buttons: [
+//                        .default(Text("Photos")) {system},
+//                            .default(Text("Browse other apps")) {},
+//                        .cancel()
+//                    ])
+//                })
                 
                 
                 Spacer().frame(height: 5)
@@ -54,10 +87,65 @@ struct MyAccountView: View {
                                 
                 //text fields and personal info
                 VStack (spacing: 3){
+<<<<<<< HEAD
+                    HStack {
+                        Text("Name: ")
+                            .bold()
+                            .foregroundColor(Constants.mainColor)
+                            .frame(width: 100, height: 30, alignment: .leading)
+                        
+                        Text("Marina De Pazzi")
+                            .bold()
+                            .foregroundColor(.black)
+                            .frame(width: 200, height: 30, alignment: .leading)
+                        
+                    }
+                    
+                    HStack{
+                        Text("E-mail: ")
+                            .bold()
+                            .foregroundColor(Constants.mainColor)
+                            .frame(width: 100, height: 30, alignment: .leading)
+                        
+                        
+                        Text("mariidepazzi@gmail.com")
+                            .bold()
+                            .foregroundColor(.black)
+                            .frame(width: 200, height: 30, alignment: .leading)
+                        
+                    }
+                    
+                    HStack{
+                        Text("User Name: ")
+                            .bold()
+                            .foregroundColor(Constants.mainColor)
+                            .frame(width: 100, height: 30, alignment: .leading)
+                        
+                        Text("MarinaDePazzi")
+                            .bold()
+                            .foregroundColor(.black)
+                            .frame(width: 200, height: 30, alignment: .leading)
+                    }
+                    
+                    HStack{
+                        Text("Password: ")
+                            .bold()
+                            .foregroundColor(Constants.mainColor)
+                            .frame(width: 100, height: 30, alignment: .leading)
+                        
+                        
+                        Text("***************")
+                            .bold()
+                            .foregroundColor(.black)
+                            .frame(width: 200, height: 30, alignment: .leading)
+                        
+                    }
+=======
                     infoItem(type: "Name: ", info: Constants.mainUser.name)
                     infoItem(type: "E-mail: ", info: Constants.mainUser.email)
                     infoItem(type: "User Name: ", info: Constants.mainUser.username)
                     infoItem(type: "Password: ", info: Constants.mainUser.password)
+>>>>>>> master
                 }
                 
                 
