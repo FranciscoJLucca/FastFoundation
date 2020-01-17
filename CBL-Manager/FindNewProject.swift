@@ -30,91 +30,78 @@ struct FindProjectView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
-                    .frame(height: 30)
-                
-                Image(systemName: "magnifyingglass.circle")
-                    .resizable()
-                    .frame(width: 45, height: 45, alignment: .center)
-                    .foregroundColor(Constants.mainColor)
-                    .navigationBarTitle(Text("Find Project"), displayMode: .inline)
-                    .background(NavigationConfigurator { nc in
-                        nc.navigationBar.barTintColor = .init(red: 38/255, green: 133/255, blue: 151/255, alpha: 1.0)
-                        nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
-                    })
+                Spacer().frame(height:50)
+                NewProjectItem(icon:"magnifyingglass.circle", name: "Find an Existing Project", description:"Search for existing projects to start lear using CBL")
+                .navigationBarTitle(Text("New Project"), displayMode: .inline)
+                .background(NavigationConfigurator { nc in
+                    nc.navigationBar.barTintColor = .init(red: 38/255, green: 133/255, blue: 151/255, alpha: 1.0)
+                    nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
+                })
                 
                 
-                Text("Find an Existing Project")
-                    .bold()
-                    .font(.system(size: 25))
-                    .frame(width: nil, height: nil, alignment: .center)
-                    .foregroundColor(Constants.mainColor)
-                
-                Spacer()
-                    .frame(height: 5)
-                
-                Text("Search for existing projects to start lear using CBL")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 12))
-                    .frame(width: nil, height: nil, alignment: .center)
-                
-                Spacer()
-                    .frame(height: 5)
                 
                 VStack {
                     SearchBarComponent(searchText: $seachText)
                     if self.seachText != "" {
                         List {
-                           ForEach(filteredProjects) { project in
-                            NavigationLink(destination: DetailedProject(proj: project)) {
-                                Text(project.name)
-                            }
+                            ForEach(filteredProjects) { project in
+                                NavigationLink(destination: DetailedProject(proj: project)) {
+                                    Text(project.name)
+                                }
                             }
                         }
                     }
                 }
                 
-                Spacer()
-                    .frame(height: 50)
+                
+                Spacer().frame(height: 70)
+                
+                NewProjectItem(icon:"pencil.circle", name: "Start From Scratch", description:"Create a new projects as an administrator and add members to start creating CBL enviroments")
                 
                 VStack {
-                    Image(systemName: "pencil.circle")
-                        .resizable()
-                        .frame(width: 45, height: 45, alignment: .center)
-                        .foregroundColor(Constants.mainColor)
-
-                    Text("Start From Scratch")
-                        .bold()
-                        .frame(width: nil, height: nil, alignment: .center)
-                        .font(.system(size: 25))
-                        .foregroundColor(Constants.mainColor)
-
-                    Text("Create a new projects as an administrator and add members to start creating CBL enviroments")
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.gray)
-                        .font(.system(size: 12))
-                        .frame(width: nil, height: nil, alignment: .center)
-
-                    Spacer()
-                        .frame(height: 10)
-
-                    Button(action: {
-                    }) {
+                    Button(action:{}) {
                         NavigationLink(destination: MyAccountView()) {
                             Text("Create New Project")
                                 .foregroundColor(.white)
+                                .padding(.init(top: 10, leading: 30, bottom: 10, trailing: 30))
+                                .background(Constants.mainColor)
+                                .cornerRadius(5)
                         }
                     }
-                    .padding(.init(top: 7, leading: 25, bottom: 7, trailing: 25))
-                    .background(Constants.mainColor)
-                    .cornerRadius(5)
+                    
                 }
-                
                 Spacer()
                 
-                
             }
-            .padding(.top, 60)
+            
+        }
+        
+        
+    }
+}
+
+struct NewProjectItem: View {
+    var icon:String
+    var name:String
+    var description:String
+    
+    var body: some View {
+        VStack {
+            Image(systemName: icon)
+                .resizable()
+                .frame(width: 60, height: 60, alignment: .center)
+                .foregroundColor(Constants.mainColor)
+            
+            Text(name)
+                .bold()
+                .font(.title)
+                .foregroundColor(Constants.mainColor)
+            
+        
+                Text(description)
+                 .multilineTextAlignment(.center)
+                .foregroundColor(.gray)
+                    .padding(20)
         }
     }
 }

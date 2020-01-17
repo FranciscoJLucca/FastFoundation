@@ -16,6 +16,5 @@ struct SearchBarComponent: View {
         TextField("Search for members, projecrs or labels", text: $searchText)
         .textFieldStyle(RoundedBorderTextFieldStyle())
             .frame(width: 350, height: 20, alignment: .center)
-            .padding(20)
     }
 }

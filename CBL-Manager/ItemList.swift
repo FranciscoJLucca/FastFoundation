@@ -33,15 +33,6 @@ struct ItemList: View {
                         .font(.title)
                         .bold()
                     
-//                    if admin {
-//                        Image(systemName: "person.crop.circle.badge.checkmark")
-//                            .resizable()
-//                            .foregroundColor(Constants.mainColor)
-//                            .scaledToFit()
-//                            .frame(height:30)
-//                            .padding(Edge.Set.trailing, 10)
-//                    }
-                    
                     Spacer()
                 }
                 Spacer()

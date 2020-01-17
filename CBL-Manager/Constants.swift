@@ -38,6 +38,8 @@ class Constants {
     static let mainColor = Color(red: 38/255, green: 133/255, blue: 151/255)
     static let secondColor = Color(red: 163/255, green: 163/255, blue: 163/255)
     
+    @State static var mainUser = User(name: "Marina de Pazzi", email: "mariidepazzi@gmail.com", username: "MarinaDePazzi", password: "**********")
+    
     @State static var projects: [Project] = [
         Project(name: "CBL Manager",
                 description: "Project to develop a way to better understand why companies do not use CBL",
@@ -50,8 +52,8 @@ class Constants {
                                challenge:"How to potentialize CBL use on business enviroments.",
                                annotations:""),
                 investigate: Investigate(guidingQuestions:["Por que as empresas já não utilizam o CBL?", "Qual método em questão que as empresas utilizam para gestão do conhecimento?", "As empresas têm conhecimento e sabem o que é o CBL?", "As empresas estão abertas para utilização de CBL?"],
-                                         resources:[],
-                                         activities:[],
+                                         resources:["Google", "Friends", "Company Owners"],
+                                         activities:["Research on google and other platforms", "Talk to friends, family members and classmates", "Understand the complexity of changing the learning methods in companies"],
                                          annotations:""),
                 act:Act(annotations:"")
         ),
@@ -77,6 +79,15 @@ class Constants {
 
 
 
+struct User: Identifiable {
+    
+    var id: UUID = UUID()
+    var name: String
+    var email: String
+    var username: String
+    var password: String
+
+}
 
 struct Project: Identifiable {
     

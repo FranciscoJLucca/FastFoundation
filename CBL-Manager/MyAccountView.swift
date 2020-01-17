@@ -25,22 +25,11 @@ struct NavigationConfigurator: UIViewControllerRepresentable {
 
 struct MyAccountView: View {
     
-    //color of the app
-    var appColor = Color(red: 38/255, green: 133/255, blue: 151/255)
-    
+    @State var editEnable = false
     var body: some View {
         NavigationView{
             VStack (spacing: 10){
                 //navigation bar title and color display
-                Text("")
-                    .navigationBarTitle("My Account", displayMode: .inline)
-                    .background(NavigationConfigurator { nc in
-                        nc.navigationBar.barTintColor = .init(red: 38/255, green: 133/255, blue: 151/255, alpha: 1.0)
-                        nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
-                    })
-                    .navigationBarItems(trailing:
-                        EditButton.init().foregroundColor(.white)
-                )
                     
                 Spacer()
                     .frame(height: 5)
@@ -48,7 +37,7 @@ struct MyAccountView: View {
                 Image(systemName: "person.circle")
                     .resizable()
                     .frame(width: 115, height: 115, alignment: .center)
-                    .foregroundColor(appColor)
+                    .foregroundColor(Constants.mainColor)
                 
                 //avatar text
                 Text("Change Avatar")
@@ -56,7 +45,7 @@ struct MyAccountView: View {
                     .font(.system(size: 13))
                     .frame(width: 107, height: 26, alignment: .center)
                     .foregroundColor(.white)
-                    .background(appColor)
+                    .background(Constants.mainColor)
                     .cornerRadius(9)
                 
                 
@@ -65,65 +54,51 @@ struct MyAccountView: View {
                                 
                 //text fields and personal info
                 VStack (spacing: 3){
-                    HStack {
-                        Text("Name: ")
-                            .bold()
-                            .foregroundColor(appColor)
-                            .frame(width: 100, height: 30, alignment: .leading)
-                        
-                        Text("Marina De Pazzi")
-                            .bold()
-                            .foregroundColor(.black)
-                            .frame(width: 200, height: 30, alignment: .leading)
-                        
-                    }
-                    
-                    HStack{
-                        Text("E-mail: ")
-                            .bold()
-                            .foregroundColor(appColor)
-                            .frame(width: 100, height: 30, alignment: .leading)
-                        
-                        
-                        Text("mariidepazzi@gmail.com")
-                            .bold()
-                            .foregroundColor(.black)
-                            .frame(width: 200, height: 30, alignment: .leading)
-                        
-                    }
-                    
-                    HStack{
-                        Text("User Name: ")
-                            .bold()
-                            .foregroundColor(appColor)
-                            .frame(width: 100, height: 30, alignment: .leading)
-                        
-                        Text("MarinaDePazzi")
-                            .bold()
-                            .foregroundColor(.black)
-                            .frame(width: 200, height: 30, alignment: .leading)
-                    }
-                    
-                    HStack{
-                        Text("Password: ")
-                            .bold()
-                            .foregroundColor(appColor)
-                            .frame(width: 100, height: 30, alignment: .leading)
-                        
-                        
-                        Text("***************")
-                            .bold()
-                            .foregroundColor(.black)
-                            .frame(width: 200, height: 30, alignment: .leading)
-                        
-                    }
+                    infoItem(type: "Name: ", info: Constants.mainUser.name)
+                    infoItem(type: "E-mail: ", info: Constants.mainUser.email)
+                    infoItem(type: "User Name: ", info: Constants.mainUser.username)
+                    infoItem(type: "Password: ", info: Constants.mainUser.password)
                 }
                 
+                
+                
                 Spacer()
+    
+                Text("Sign Out")
+                .foregroundColor(.red).underline()
                 
-                Text("Sign Out").foregroundColor(.red).underline()
-                
-            }.padding(20)
+            }
+            .padding(20)
+            .navigationBarTitle("My Account", displayMode: .inline)
+            .background(NavigationConfigurator { nc in
+                nc.navigationBar.barTintColor = Constants.mainColor.uiColor()
+                nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
+            })
+            .navigationBarItems(trailing:
+                EditButton.init().foregroundColor(.white)
+            )
         }
+    }
+}
+
+
+
+struct infoItem: View {
+    var type:String
+    var info:String
+    var body: some View {
+            HStack {
+                Text(type)
+                    .bold()
+                    .foregroundColor(Constants.mainColor)
+                    .frame(width: 100, height: 30, alignment: .leading)
+                
+                Text(info)
+                    .bold()
+                    .foregroundColor(Constants.secondColor)
+                    .frame(width: 200, height: 30, alignment: .leading)
+                
+            }
+            
     }
 }
